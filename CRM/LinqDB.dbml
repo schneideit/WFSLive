@@ -782,4 +782,40 @@
       <Column Name="OutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.PR_GetTrainer" Method="PR_GetTrainer">
+    <ElementType Name="PR_GetTrainerResult">
+      <Column Name="TrainerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CourseName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PR_GetSchedules" Method="PR_GetSchedules">
+    <ElementType Name="PR_GetSchedulesResult">
+      <Column Name="TSchdlId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ClassDays" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FromTime" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ToTime" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Activity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Trainer" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PR_GetSchedule" Method="PR_GetSchedule">
+    <Parameter Name="Course" Parameter="course" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="PR_GetScheduleResult">
+      <Column Name="ScheduleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="coursename" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LocName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FromTime" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ToTime" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

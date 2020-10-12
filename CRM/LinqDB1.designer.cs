@@ -542,6 +542,27 @@ namespace CRM
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<PR_GetAttendeesResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PR_GetTrainer")]
+		public ISingleResult<PR_GetTrainerResult> PR_GetTrainer()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<PR_GetTrainerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PR_GetSchedules")]
+		public ISingleResult<PR_GetSchedulesResult> PR_GetSchedules()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<PR_GetSchedulesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PR_GetSchedule")]
+		public ISingleResult<PR_GetScheduleResult> PR_GetSchedule([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Course", DbType="VarChar(50)")] string course)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), course);
+			return ((ISingleResult<PR_GetScheduleResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MstCourse")]
@@ -13049,6 +13070,444 @@ namespace CRM
 				if ((this._OutTime != value))
 				{
 					this._OutTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PR_GetTrainerResult
+	{
+		
+		private int _TrainerId;
+		
+		private string _FirstName;
+		
+		private string _Address;
+		
+		private string _ContactNo;
+		
+		private string _Email;
+		
+		private string _CourseName;
+		
+		public PR_GetTrainerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainerId", DbType="Int NOT NULL")]
+		public int TrainerId
+		{
+			get
+			{
+				return this._TrainerId;
+			}
+			set
+			{
+				if ((this._TrainerId != value))
+				{
+					this._TrainerId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(500)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="VarChar(20)")]
+		public string ContactNo
+		{
+			get
+			{
+				return this._ContactNo;
+			}
+			set
+			{
+				if ((this._ContactNo != value))
+				{
+					this._ContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CourseName", DbType="VarChar(100)")]
+		public string CourseName
+		{
+			get
+			{
+				return this._CourseName;
+			}
+			set
+			{
+				if ((this._CourseName != value))
+				{
+					this._CourseName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PR_GetSchedulesResult
+	{
+		
+		private int _TSchdlId;
+		
+		private string _ScheduleName;
+		
+		private string _ClassDays;
+		
+		private string _FromTime;
+		
+		private string _ToTime;
+		
+		private string _Activity;
+		
+		private string _Location;
+		
+		private string _Trainer;
+		
+		private System.Nullable<System.DateTime> _FromDate;
+		
+		private System.Nullable<System.DateTime> _ToDate;
+		
+		public PR_GetSchedulesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TSchdlId", DbType="Int NOT NULL")]
+		public int TSchdlId
+		{
+			get
+			{
+				return this._TSchdlId;
+			}
+			set
+			{
+				if ((this._TSchdlId != value))
+				{
+					this._TSchdlId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleName", DbType="VarChar(50)")]
+		public string ScheduleName
+		{
+			get
+			{
+				return this._ScheduleName;
+			}
+			set
+			{
+				if ((this._ScheduleName != value))
+				{
+					this._ScheduleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassDays", DbType="VarChar(20)")]
+		public string ClassDays
+		{
+			get
+			{
+				return this._ClassDays;
+			}
+			set
+			{
+				if ((this._ClassDays != value))
+				{
+					this._ClassDays = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FromTime", DbType="VarChar(20)")]
+		public string FromTime
+		{
+			get
+			{
+				return this._FromTime;
+			}
+			set
+			{
+				if ((this._FromTime != value))
+				{
+					this._FromTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ToTime", DbType="VarChar(20)")]
+		public string ToTime
+		{
+			get
+			{
+				return this._ToTime;
+			}
+			set
+			{
+				if ((this._ToTime != value))
+				{
+					this._ToTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Activity", DbType="VarChar(100)")]
+		public string Activity
+		{
+			get
+			{
+				return this._Activity;
+			}
+			set
+			{
+				if ((this._Activity != value))
+				{
+					this._Activity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="VarChar(500)")]
+		public string Location
+		{
+			get
+			{
+				return this._Location;
+			}
+			set
+			{
+				if ((this._Location != value))
+				{
+					this._Location = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Trainer", DbType="VarChar(100)")]
+		public string Trainer
+		{
+			get
+			{
+				return this._Trainer;
+			}
+			set
+			{
+				if ((this._Trainer != value))
+				{
+					this._Trainer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FromDate", DbType="Date")]
+		public System.Nullable<System.DateTime> FromDate
+		{
+			get
+			{
+				return this._FromDate;
+			}
+			set
+			{
+				if ((this._FromDate != value))
+				{
+					this._FromDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ToDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ToDate
+		{
+			get
+			{
+				return this._ToDate;
+			}
+			set
+			{
+				if ((this._ToDate != value))
+				{
+					this._ToDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PR_GetScheduleResult
+	{
+		
+		private string _ScheduleName;
+		
+		private string _coursename;
+		
+		private string _LocName;
+		
+		private System.Nullable<System.DateTime> _FromDate;
+		
+		private System.Nullable<System.DateTime> _ToDate;
+		
+		private string _FromTime;
+		
+		private string _ToTime;
+		
+		public PR_GetScheduleResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScheduleName", DbType="VarChar(50)")]
+		public string ScheduleName
+		{
+			get
+			{
+				return this._ScheduleName;
+			}
+			set
+			{
+				if ((this._ScheduleName != value))
+				{
+					this._ScheduleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_coursename", DbType="VarChar(100)")]
+		public string coursename
+		{
+			get
+			{
+				return this._coursename;
+			}
+			set
+			{
+				if ((this._coursename != value))
+				{
+					this._coursename = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocName", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string LocName
+		{
+			get
+			{
+				return this._LocName;
+			}
+			set
+			{
+				if ((this._LocName != value))
+				{
+					this._LocName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FromDate", DbType="Date")]
+		public System.Nullable<System.DateTime> FromDate
+		{
+			get
+			{
+				return this._FromDate;
+			}
+			set
+			{
+				if ((this._FromDate != value))
+				{
+					this._FromDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ToDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ToDate
+		{
+			get
+			{
+				return this._ToDate;
+			}
+			set
+			{
+				if ((this._ToDate != value))
+				{
+					this._ToDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FromTime", DbType="VarChar(20)")]
+		public string FromTime
+		{
+			get
+			{
+				return this._FromTime;
+			}
+			set
+			{
+				if ((this._FromTime != value))
+				{
+					this._FromTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ToTime", DbType="VarChar(20)")]
+		public string ToTime
+		{
+			get
+			{
+				return this._ToTime;
+			}
+			set
+			{
+				if ((this._ToTime != value))
+				{
+					this._ToTime = value;
 				}
 			}
 		}

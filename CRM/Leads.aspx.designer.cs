@@ -150,15 +150,6 @@ namespace CRM
         protected global::System.Web.UI.WebControls.DropDownList ddlEnqStatus;
 
         /// <summary>
-        /// divfenq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divfenq;
-
-        /// <summary>
         /// txtFromDt control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace CRM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtToDt;
+
+        /// <summary>
+        /// divfenq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divfenq;
 
         /// <summary>
         /// BtnEnqSave control.

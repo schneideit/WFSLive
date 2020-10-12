@@ -501,7 +501,9 @@
     <Content Include="StudProfile.aspx" />
     <Content Include="RoleSearch.aspx" />
     <Content Include="UserSearch.aspx" />
+    <Content Include="ViewSchedules.aspx" />
     <Content Include="ViewStudents.aspx" />
+    <Content Include="ViewTrainers.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -674,12 +676,26 @@
     <Compile Include="UserSearch.aspx.designer.cs">
       <DependentUpon>UserSearch.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewSchedules.aspx.cs">
+      <DependentUpon>ViewSchedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSchedules.aspx.designer.cs">
+      <DependentUpon>ViewSchedules.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewStudents.aspx.cs">
       <DependentUpon>ViewStudents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewStudents.aspx.designer.cs">
       <DependentUpon>ViewStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTrainers.aspx.cs">
+      <DependentUpon>ViewTrainers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTrainers.aspx.designer.cs">
+      <DependentUpon>ViewTrainers.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

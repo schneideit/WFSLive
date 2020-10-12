@@ -56,20 +56,20 @@
                         <div class="card-body">
                             <h4>Basic Information</h4>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-user-o">  First Name</label>
+                                <label class="col-lg-4 col-form-label fa fa-user-o">First Name</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtFname" runat="server" class="form-control" data-toggle="validator"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-user-o">  Last Name</label>
+                                <label class="col-lg-4 col-form-label fa fa-user-o">Last Name</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtLname" runat="server" class="form-control" data-toggle="validator"></asp:TextBox>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-venus-double">  Gender</label>
+                                <label class="col-lg-4 col-form-label fa fa-venus-double">Gender</label>
                                 <div class="col-lg-8">
                                     <asp:DropDownList ID="ddlGender" runat="server" class="form-control">
                                         <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
@@ -78,25 +78,25 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-users">  Parent Name</label>
+                                <label class="col-lg-4 col-form-label fa fa-users">Parent Name</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtParent" runat="server" class="form-control" data-toggle="validator"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-envelope">  Email</label>
+                                <label class="col-lg-4 col-form-label fa fa-envelope">Email</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtEmail" runat="server" class="form-control" data-toggle="validator" TextMode="Email"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-phone">  Contact No</label>
+                                <label class="col-lg-4 col-form-label fa fa-phone">Contact No</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtContactno" runat="server" class="form-control" TextMode="Phone" data-toggle="validator"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-address-card">  Present Address</label>
+                                <label class="col-lg-4 col-form-label fa fa-address-card">Present Address</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtaddress1" runat="server" class="form-control" TextMode="MultiLine" data-toggle="validator"></asp:TextBox>
                                 </div>
@@ -110,32 +110,32 @@
                         <div class="card-body">
                             <h4>Other Information</h4>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-book">  Activity</label>
+                                <label class="col-lg-4 col-form-label fa fa-book">Activity</label>
                                 <div class="col-lg-8">
                                     <asp:DropDownList ID="DDLCourse" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-building-o"> Location</label>
+                                <label class="col-lg-4 col-form-label fa fa-building-o">Location</label>
                                 <div class="col-lg-8">
                                     <asp:DropDownList ID="DDLloc" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-facebook-f">  Enq. Source</label>
+                                <label class="col-lg-4 col-form-label fa fa-facebook-f">Enq. Source</label>
                                 <div class="col-lg-8">
                                     <asp:DropDownList ID="ddlSource" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-user-plus">  Assign To</label>
+                                <label class="col-lg-4 col-form-label fa fa-user-plus">Assign To</label>
                                 <div class="col-lg-8">
                                     <asp:DropDownList ID="ddlAssigned" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-file-o">  Status</label>
+                                <label class="col-lg-4 col-form-label fa fa-file-o">Status</label>
                                 <div class="col-lg-8">
                                     <asp:DropDownList ID="ddlEnqStatus" runat="server" class="form-control">
                                         <asp:ListItem Text="Cold" Value="Cold"></asp:ListItem>
@@ -145,23 +145,22 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-                        </div>
-                        <div id="divfenq" runat="server" visible="false">
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label fa fa-calendar">  From Date</label>
+                                <label class="col-lg-4 col-form-label fa fa-calendar">From Date</label>
                                 <div class="col-lg-8">
                                     <asp:TextBox ID="txtFromDt" ClientIDMode="Static" placeholder="dd/MM/yyyy" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label fa fa-calendar">  To Date</label>
-                                    <div class="col-lg-8">
-                                        <asp:TextBox ID="txtToDt" ClientIDMode="Static" placeholder="dd/MM/yyyy" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
-                                    </div>
+                                <label class="col-lg-4 col-form-label fa fa-calendar">To Date</label>
+                                <div class="col-lg-8">
+                                    <asp:TextBox ID="txtToDt" ClientIDMode="Static" placeholder="dd/MM/yyyy" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
+
+                        </div>
+                        <div id="divfenq" runat="server" visible="true">
                         </div>
                     </div>
                 </div>

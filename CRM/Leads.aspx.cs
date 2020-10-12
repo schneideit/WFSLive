@@ -30,7 +30,7 @@ namespace CRM
                 }
                 else
                 {
-                    txtdt.Text = DateTime.Now.ToString("yyyy/mm/dd");
+                    txtdt.Text = DateTime.Now.ToString("MM/dd/yyyy");
                     GetCourse();
                     Getlocation();
                     GetAssgnTo();
