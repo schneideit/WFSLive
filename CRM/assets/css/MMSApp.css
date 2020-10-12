@@ -1,0 +1,20 @@
+﻿.LogoTitle {
+    font-size: 30px;
+    font-variant: small-caps;
+    color: #fff;
+    text-shadow: 3px 1px 1px #33333361;
+    padding:6px 6px;
+}
+.dt-buttons {
+    width:300px;
+    float:left;
+}
+.dataTables_length {
+    width: 200px;
+    float: right;
+    padding-left: 30px;
+}
+.popupTitleLable {
+    color: #909090;
+    font-size: 13px;
+}

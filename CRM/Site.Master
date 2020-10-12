@@ -1,0 +1,149 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CRM.Site" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Westford Sports - CRM">
+    <meta name="keywords" content="Schneide, Westford, Westford Sports, Sports, CRM, Projects">
+    <meta name="author" content="Schneide Solutions Pvt Ltd">
+    <meta name="robots" content="noindex, nofollow">
+    <title>CRM</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/westford-favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!--font style
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">-->
+     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <!-- Lineawesome CSS -->
+    <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="skin-color">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <!-- Main Wrapper -->
+                <div class="main-wrapper">
+                    <!-- Header -->
+                    <div class="header" id="heading">
+
+                        <!-- Logo -->
+                        <div class="header-left">
+                            <a href="#" class="logo">
+                                <img src="assets/img/westford-sports.png" alt="Logo" class="sidebar-logo">
+                                <img src="assets/img/westford-favicon.png" alt="Logo" class="mini-sidebar-logo">
+                            </a>
+                        </div>
+                        <!-- /Logo -->
+
+                        <a id="toggle_btn" href="javascript:void(0);">
+                            <span class="bar-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </a>
+
+                        <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
+
+                        <!-- Header Menu -->
+                        <ul class="nav user-menu">
+
+                            <li class="nav-item dropdown has-arrow main-drop">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <span class="user-img">
+                                        <img src="assets/img/profiles/avatar-20.jpg" alt="">
+                                        <span class="status online"></span></span>
+                                    <span runat="server" id="lblName">Admin</span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">My Profile</a>
+                                    <a class="dropdown-item" href="#">Password</a>
+                                    <a class="dropdown-item" href="Login.aspx">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- /Header Menu -->
+                    </div>
+                    <!-- /Header -->
+                    <!-- Sidebar 
+                    <asp:ContentPlaceHolder ID="cpsidebar" runat="server">  -->
+                    <!-- Sidebar -->
+                    <div class="sidebar" id="sidebar">
+                        <div class="sidebar-inner slimscroll">
+                            <div id="sidebar-menu" class="sidebar-menu">
+                                <ul>
+                                    <asp:Literal ID="ltrMenu" runat="server"></asp:Literal>
+                                  
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Sidebar -->
+                    <!--    </asp:ContentPlaceHolder>
+                   /Sidebar -->
+                    <div class="page-wrapper">
+
+                        <!-- Page Content -->
+                        <div class="content container-fluid">
+                            <!-- PAGE CONTENT BEGINS -->
+                            <asp:ContentPlaceHolder ID="cpPageContent" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <!--- Page Content -->
+                     </div>
+                    <!-- Main wrapper -->
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+        <!-- /.page-content -->
+        <!-- jQuery -->
+        <script src="assets/js/jquery-3.5.0.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- Slimscroll JS -->
+		<script src="assets/js/jquery.slimscroll.min.js"></script>
+
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+
+		<!-- Datatable JS -->
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+		<!-- Datetimepicker JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+		
+		<!-- Custom JS -->
+		<script src="assets/js/app.js"></script>
+        <asp:ContentPlaceHolder ID="cpScripts" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+    </form>
+</body>
+
+</html>
+

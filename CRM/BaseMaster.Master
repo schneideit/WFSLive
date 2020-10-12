@@ -1,0 +1,591 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BaseMaster.master.cs" Inherits="CRM.BaseMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="assets/csss/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/chosen.min.css" />
+    <!-- text fonts -->
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+
+    <!-- Template styles -->
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main_ace_style" />
+
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+
+    <!-- Template settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <link href="assets/css/MMSApp.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="no-skin">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div id="navbar" class="navbar navbar-default ace-save-state">
+                    <div class="navbar-container ace-save-state" id="navbar-container">
+                        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                            <span class="sr-only">Toggle sidebar</span>
+
+                            <span class="icon-bar"></span>
+
+                            <span class="icon-bar"></span>
+
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div class="navbar-header pull-left" style="width: 50%">
+                            <a href="#" class="navbar-brand">
+                                <small>
+                                    <img src="Images/logo.png" height="50" />
+                                </small>
+                            </a>
+                            <div class="LogoTitle">
+                                CRM
+                            </div>
+                        </div>
+
+                        <div class="navbar-buttons navbar-header pull-right" role="navigation" style="padding-top: 7px">
+                            <ul class="nav ace-nav">
+                                <li class="light-blue dropdown-modal">
+                                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                        <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                                        <span class="user-info">
+                                            <small>Welcome,</small>
+                                            <span runat="server" id="lblloginUserName">User</span>
+                                        </span>
+
+                                        <i class="ace-icon fa fa-caret-down"></i>
+                                    </a>
+
+                                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+
+                                        <li class="divider"></li>
+
+                                        <li>
+                                            <a href="JavaScript:Void(0);" onclick="logout_click()">
+                                                <i class="ace-icon fa fa-power-off"></i>
+                                                Logout
+                                            </a>
+                                            <asp:Button runat="server" ID="hdnBtnLogout" Style="display: none" ClientIDMode="Static"  />
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.navbar-container -->
+                </div>
+                <div class="main-container ace-save-state" id="main-container">
+                     <div id="sidebar" class="sidebar responsive ace-save-state sidebar-fixed sidebar-scroll">
+                        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                                <button class="btn btn-success">
+                                    <i class="ace-icon fa fa-signal"></i>
+                                </button>
+                                <button class="btn btn-info">
+                                    <i class="ace-icon fa fa-pencil"></i>
+                                </button>
+
+                                <button class="btn btn-warning">
+                                    <i class="ace-icon fa fa-users"></i>
+                                </button>
+
+                                <button class="btn btn-danger">
+                                    <i class="ace-icon fa fa-cogs"></i>
+                                </button>
+                            </div>
+
+                            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                                <span class="btn btn-success"></span>
+
+                                <span class="btn btn-info"></span>
+
+                                <span class="btn btn-warning"></span>
+
+                                <span class="btn btn-danger"></span>
+                            </div>
+                        </div>
+                        <!-- /.sidebar-shortcuts -->
+
+                        <ul class="nav nav-list" runat="server" id="mnuPanel">
+                            <asp:Literal ID="lmsMenu" runat="server"></asp:Literal>
+                             <li class="">
+                                <a href="Default.aspx"> 
+                                    <i class="menu-icon fa fa-home home-icons"></i>
+                                    <span class="menu-text">Home </span>
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="" >
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-user"></i>
+                                    <span class="menu-text">Enquiry Management </span>
+
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+                                    <li class="">
+                                        <a href="Enquiry.aspx">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            User
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>  
+                                    <li class="">
+                                        <a href="#">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            Followup
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>  
+                                </ul>
+                            </li>
+
+                            <li class="" >
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="menu-icon fa fa-cogs"></i>
+                                    <span class="menu-text">Setting</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+                                    <li class="">
+                                        <a href="#">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                           App Config
+                                        </a>
+
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- /.nav-list -->
+
+                        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+                            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="main-content">
+                        <div class="main-content-inner">
+                            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                                <asp:ContentPlaceHolder ID="PageRoot" runat="server">
+                                </asp:ContentPlaceHolder>
+                                <!-- /.breadcrumb -->
+
+                            </div>
+
+                            <div class="page-content">
+                                <div class="ace-settings-container" id="ace-settings-container" style="display: none">
+                                    <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                                        <i class="ace-icon fa fa-cog bigger-130"></i>
+                                    </div>
+
+                                    <div class="ace-settings-box clearfix" id="ace-settings-box">
+                                        <div class="pull-left width-50">
+                                         <%--   <div class="ace-settings-item">
+                                                <div class="pull-left">
+                                                    <select id="skin-colorpicker" class="hide">
+                                                        <option data-skin="no-skin" value="#438EB9">#438EB9</option>
+                                                        <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                                        <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                                        <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                                                    </select>
+                                                </div>
+                                                <span>&nbsp; Choose Skin</span>
+                                            </div>--%>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-navbar">Fixed Navbar</label>
+                                            </div>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-sidebar">Fixed Sidebar</label>
+                                            </div>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-breadcrumbs">Fixed Breadcrumbs</label>
+                                            </div>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-rtl">Right To Left (rtl)</label>
+                                            </div>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-add-container">
+                                                    Inside
+											<b>.container</b>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- /.pull-left -->
+
+                                        <div class="pull-left width-50">
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-hover">Submenu on Hover</label>
+                                            </div>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-compact">Compact Sidebar</label>
+                                            </div>
+
+                                            <div class="ace-settings-item">
+                                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
+                                                <label class="lbl" for="ace-settings-highlight">Alt. Active Item</label>
+                                            </div>
+                                        </div>
+                                        <!-- /.pull-left -->
+                                    </div>
+                                    <!-- /.ace-settings-box -->
+                                </div>
+                                <!-- /.ace-settings-container -->
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <!-- PAGE CONTENT BEGINS -->
+                                        <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                        <!-- PAGE CONTENT ENDS -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.page-content -->
+                        </div>
+                    </div>
+                    <!-- /.main-content -->
+
+                    <div class="footer">
+                        <div class="footer-inner">
+                            <div class="footer-content">
+                                <span class="bigger-120">
+                                    <span class="blue bolder">Schneide Solutions Pvt. Ltd </span>
+                                    &copy; 2020
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+                    </a>
+                </div>
+                <!-- /.main-container -->
+
+                <div id="dialog-message" class="hide">
+                    <p id="dialog-message-Text">
+                    </p>
+                </div>
+                <%--Alert END--%>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        </
+        <!-- basic scripts -->
+
+        <!--[if !IE]> -->
+        <script src="assets/js/jquery-2.1.4.min.js"></script>
+
+        <!-- <![endif]-->
+
+        <!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+        <script type="text/javascript">
+            if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        </script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <!-- page specific plugin scripts -->
+        <script src="assets/js/jquery-ui.custom.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="assets/js/chosen.jquery.min.js"></script>
+        <script src="assets/js/spinbox.min.js"></script>
+        <script src="assets/js/bootstrap-datepicker.min.js"></script>
+        <script src="assets/js/bootstrap-timepicker.min.js"></script>
+        <script src="assets/js/moment.min.js"></script>
+        <script src="assets/js/daterangepicker.min.js"></script>
+        <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+
+        <!-- ace scripts -->
+        <script src="assets/js/ace-elements.min.js"></script>
+        <script src="assets/js/ace.min.js"></script>
+
+        <script src="assets/js/jquery.dataTables.min.js"></script>
+        <script src="assets/js/dataTables.buttons.min.js"></script>
+        <script src="assets/js/buttons.flash.min.js"></script>
+        <script src="assets/js/jszip.min.js"></script>
+        <script src="assets/js/pdfmake.min.js"></script>
+        <script src="assets/js/vfs_fonts.js"></script>
+        <script src="assets/js/buttons.html5.min.js"></script>
+        <script src="assets/js/buttons.print.min.js"></script>
+
+        <script src="Scripts/Common.js"></script>
+        <!-- inline scripts related to this page -->
+        <script type="text/javascript">
+       
+
+            var yPos = 0, retainScroll = true;
+
+            function pageLoad() {
+                // replacejscssfile("assets/js/ace.min.js", "assets/js/ace.min.js","js");
+
+                $.getScript("assets/js/ace.min.js")
+                    .done(function (script, textStatus) {
+                        console.log(textStatus);
+                    })
+                    .fail(function (jqxhr, settings, exception) {
+                        // $("div.log").text("Triggered ajaxError handler.");
+                    });
+
+                initialFn();
+
+            }
+            function initialFn() {
+               
+                ace.settingFunction.navbar_fixed(null, true);
+                //ace.settingFunction.sidebar_fixed(null, true);
+                ace.settingFunction.breadcrumbs_fixed(null, true);
+               
+                
+                //$("#ace-settings-navbar").
+                $('#id-disable-check').on('click', function () {
+                    var inp = $('#form-input-readonly').get(0);
+                    if (inp.hasAttribute('disabled')) {
+                        inp.setAttribute('readonly', 'true');
+                        inp.removeAttribute('disabled');
+                        inp.value = "This text field is readonly!";
+                    }
+                    else {
+                        inp.setAttribute('disabled', 'disabled');
+                        inp.removeAttribute('readonly');
+                        inp.value = "This text field is disabled!";
+                    }
+                });
+
+
+                if (!ace.vars['touch']) {
+                    $('.chosen-select').chosen({ allow_single_deselect: true });
+                    //resize the chosen on window resize
+
+                    $(window)
+                        .off('resize.chosen')
+                        .on('resize.chosen', function () {
+                            $('.chosen-select').each(function () {
+                                var $this = $(this);
+                                $this.next().css({ 'width': $this.parent().width() });
+                            })
+                        }).trigger('resize.chosen');
+                    //resize chosen on sidebar collapse/expand
+                    $(document).on('settings.ace.chosen', function (e, event_name, event_val) {
+                        if (event_name != 'sidebar_collapsed') return;
+                        $('.chosen-select').each(function () {
+                            var $this = $(this);
+                            $this.next().css({ 'width': $this.parent().width() });
+                        })
+                    });
+
+
+                    $('#chosen-multiple-style .btn').on('click', function (e) {
+                        var target = $(this).find('input[type=radio]');
+                        var which = parseInt(target.val());
+                        if (which == 2) $('#form-field-select-4').addClass('tag-input-style');
+                        else $('#form-field-select-4').removeClass('tag-input-style');
+                    });
+                }
+
+                //datepicker plugin
+                //link
+                $('.date-picker').datepicker({
+                    autoclose: true,
+                    todayHighlight: true,
+                    changeYear: true
+                }).next().on(ace.click_event, function () {
+                    $(this).prev().focus();
+                });
+
+                $('.datetimepicker').datetimepicker({
+                    //format: 'MM/DD/YYYY h:mm:ss A',//use this option to display seconds
+                    icons: {
+                        time: 'fa fa-clock-o',
+                        date: 'fa fa-calendar',
+                        up: 'fa fa-chevron-up',
+                        down: 'fa fa-chevron-down',
+                        previous: 'fa fa-chevron-left',
+                        next: 'fa fa-chevron-right',
+                        today: 'fa fa-arrows ',
+                        clear: 'fa fa-trash',
+                        close: 'fa fa-times'
+                    }
+                }).next().on(ace.click_event, function () {
+                    $(this).prev().focus();
+                });
+
+                //$(function () {
+                //    $('.datetimepicker').datetimepicker();
+                //});
+
+                var maxdate = new Date(new Date().getFullYear(), 11);
+                maxdate.setFullYear(maxdate.getFullYear() - 8);
+
+                $('.dobdate-picker').datepicker({
+                    autoclose: true,
+                    todayHighlight: false,
+                    changeYear: true,
+                    changeMonth: true,
+                    dateFormat: 'dd-M-yy',
+                    maxDate: maxdate,//new Date(2000,12,31),
+                    minDate: new Date(1995, 0),
+                    yearRange: "1995:2050",
+                    defaultDate: '01-JAN-1995'
+
+                })
+
+                    //show datepicker when clicking on the icon
+                    .next().on(ace.click_event, function () {
+                        $(this).prev().focus();
+                    });
+                $(".monthyearpicker").datepicker({
+                    //viewMode: 'years',
+                    changeYear: true,
+                    changeMonth: true,
+                    //  format: 'M-yy'
+                    format: "MMMM YYYY",
+                    viewMode: "Months",
+                    minViewMode: 1
+                });
+                //or change it into a date range picker
+                $('.input-daterange').datepicker({ autoclose: true });
+
+
+                //to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
+                $('input[name=date-range-picker]').daterangepicker({
+                    'applyClass': 'btn-sm btn-success',
+                    'cancelClass': 'btn-sm btn-default',
+                    locale: {
+                        applyLabel: 'Apply',
+                        cancelLabel: 'Cancel',
+                    }
+                })
+                    .prev().on(ace.click_event, function () {
+                        $(this).next().focus();
+                    });
+
+                //Alert Modal starts
+
+                //override dialog's title function to allow for HTML titles
+                $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+                    _title: function (title) {
+                        alert("ssssss");
+                        var $title = this.options.title || '&nbsp;'
+                        if (("title_html" in this.options) && this.options.title_html == true)
+                            title.html($title);
+                        else title.text($title);
+                    }
+                }));
+
+            }
+            function ShowAlert(title, message, okCallBack) {
+                retainScroll = false;
+                //override dialog's title function to allow for HTML titles
+                $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+                    _title: function (title) {
+                        var $title = this.options.title || '&nbsp;'
+                        if (("title_html" in this.options) && this.options.title_html == true)
+                            title.html($title);
+                        else title.text($title);
+                    }
+                }));
+
+                $("#dialog-message-Text").html(message);
+                var dialog = $("#dialog-message").removeClass('hide').dialog({
+                    modal: true,
+                    title_html: true,
+                    title: " <div class='widget-header widget-header-small'> <h4 class='smaller'> <i class='ace-icon fa fa-check'> </i> " + title + "</h4> </div> ",
+                    buttons: [
+                        //{
+                        //    text: "Cancel",
+                        //    "class": "btn btn-minier",
+                        //    click: function () {
+                        //        $(this).dialog("close");
+                        //    }
+                        //},
+                        {
+                            text: "OK",
+                            "class": "btn btn-primary btn-minier",
+                            click: function () {
+                                retainScroll = true;
+                                $(this).dialog("close");
+                                if (typeof (okCallBack) === "function")
+                                    okCallBack();
+                            }
+                        }
+                    ]
+                });
+            }
+
+            //alert modal END
+
+            function logout_click() {
+                $("#hdnBtnLogout").click();
+            }
+
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_beginRequest(BeginRequestHandler);
+            prm.add_pageLoaded(EndRequestHandler)
+
+            function BeginRequestHandler(sender, args) {
+                yPos = $(document).scrollTop();
+            }
+
+            function EndRequestHandler(sender, args) {
+                if (retainScroll) {
+                    setTimeout(function () { $(document).scrollTop(yPos) }, 20);
+                }
+            }
+
+        </script>
+        
+        <asp:ContentPlaceHolder runat="server" ID="ScriptArea">
+        </asp:ContentPlaceHolder>
+
+    </form>
+</body>
+</html>
+

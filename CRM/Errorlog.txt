@@ -1,0 +1,7 @@
+
+-------------------------------------------------------------------
+Error Occurred On : 9/28/2020 2:58:32 PM
+Class Name : default_aspx && Method Name : BtnEnqSave_Click
+Error Message : Cannot insert the value NULL into column 'EnqType', table 'WFS_ERP.dbo.MstEnquiry'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+Login User: admin
