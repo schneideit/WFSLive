@@ -74,8 +74,8 @@
                                     <span runat="server" id="lblName">Admin</span>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">My Profile</a>
-                                    <a class="dropdown-item" href="#">Password</a>
+                                    <a class="dropdown-item" href="Profile.aspx">Profile</a>
+                                    <a class="dropdown-item" href="ChangePassword.aspx">Password</a>
                                     <a class="dropdown-item" href="Login.aspx">Logout</a>
                                 </div>
                             </li>

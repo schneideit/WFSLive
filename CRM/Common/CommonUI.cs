@@ -30,7 +30,7 @@ namespace CRM.Common
         public static void BindCombo(DropDownList drp, object data, string value, string text)
         {
             drp.Items.Clear();
-            if (data!=null)
+            if (data != null)
             {
                 drp.DataSource = data;
                 drp.DataValueField = value;
@@ -40,9 +40,9 @@ namespace CRM.Common
             drp.Items.Insert(0, new ListItem() { Text = "", Value = "" });
 
         }
-        public static void ShowMessage(string msg, Page page,string key="")
+        public static void ShowMessage(string msg, Page page, string key = "")
         {
-            ScriptManager.RegisterStartupScript(page, page.GetType(), key, $"alert('{msg}');", true); 
+            ScriptManager.RegisterStartupScript(page, page.GetType(), key, $"alert('{msg}');", true);
         }
 
         public static void SaveUserSession(HttpRequest Req)
@@ -70,9 +70,9 @@ namespace CRM.Common
                    LoggedSessID == Req.RequestContext.HttpContext.Session.SessionID;
         }
 
-        public static void Authorization(HttpRequest Req,Page page)
+        public static void Authorization(HttpRequest Req, Page page)
         {
-            string[] excludeList = new string[] { "Home.aspx" };
+            string[] excludeList = new string[] { "Home.aspx", "Profile.aspx", "ChangePassword.aspx" };
 
             if (!excludeList.Contains(page.ResolveClientUrl(page.AppRelativeVirtualPath)))
             {
@@ -117,27 +117,28 @@ namespace CRM.Common
                 bool _parentOpen = false;
                 foreach (var p in priv)
                 {
-                    _privilege.Add(new Privilege() { 
+                    _privilege.Add(new Privilege()
+                    {
                         ActionUrl = p.ActionUrl,
                         ActionValue = p.ActionValue,
                         CanModify = Convert.ToBoolean(p.CanModify),
                         CanView = Convert.ToBoolean(p.CanView),
-                        Description =p.Description,
+                        Description = p.Description,
                         DisplayOrder = Convert.ToInt16(p.DisplayOrder),
-                        PageID =p.PageID,
-                        ParentPageID=p.ParentPageID,
-                        RoleID=p.RoleID,
-                        ShowInMenu= Convert.ToBoolean(p.ShowInMenu),
-                        ShowInPrivilege=Convert.ToBoolean(p.ShowInPrivilege),
-                        UIData=p.UIData
+                        PageID = p.PageID,
+                        ParentPageID = p.ParentPageID,
+                        RoleID = p.RoleID,
+                        ShowInMenu = Convert.ToBoolean(p.ShowInMenu),
+                        ShowInPrivilege = Convert.ToBoolean(p.ShowInPrivilege),
+                        UIData = p.UIData
                     });
-                    if (p.ShowInMenu==true && p.CanView ==true)
+                    if (p.ShowInMenu == true && p.CanView == true)
                     {
                         if (string.IsNullOrEmpty(p.ParentPageID) && !string.IsNullOrEmpty(p.ActionUrl))
                         {
                             if (_parentOpen)
                                 mnu.Append(@"</ul></li>");
-                            
+
                             mnu.Append($@"<li>
                                         <a href='{p.ActionUrl}'><i class='{p.UIData}' aria-hidden='true'></i><span>{p.Description}</span></a>
                                     </li>");
@@ -202,5 +203,5 @@ namespace CRM.Common
 
     }
 
-	
+
 }
