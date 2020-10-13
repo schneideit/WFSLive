@@ -18,23 +18,23 @@ namespace CRM
         LinqDBDataContext dbconn = new LinqDBDataContext();
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConStr"].ConnectionString);
         private LinqDBDataContext objLinq = new LinqDBDataContext();
-        public string mStudId;
+        public string mStudId, mFeeId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!string.IsNullOrEmpty(Session["SesnStudId"] as string))
-            //{
-            //    mStudId = Session["SesnStudId"].ToString();
-            //    var StudEdit = from objstd in dbconn.MstStudents
-            //                   where objstd.StudId == Convert.ToInt32(mStudId)
-            //                   select objstd;
-            //    foreach (MstStudent EE in StudEdit)
-            //    {
-            //        txtStudent.Text = EE.FirstName.ToString() + " " + EE.LastName.ToString();
-            //        txtstudId.Text = EE.StudId.ToString();
-                   
+            if (!string.IsNullOrEmpty(Session["SesnStudId"] as string))
+            {
+                mStudId = Session["SesnStudId"].ToString();
+                var StudEdit = from objstd in dbconn.MstStudents
+                               where objstd.StudId == Convert.ToInt32(mStudId)
+                               select objstd;
+                foreach (MstStudent EE in StudEdit)
+                {
+                    txtStudent.Text = EE.FirstName.ToString() + " " + EE.LastName.ToString();
+                    txtstudId.Text = EE.StudId.ToString();
 
-            //    }
-            //}
+
+                }
+            }
             if (!Page.IsPostBack)
             {
                 
@@ -44,6 +44,8 @@ namespace CRM
             }
             
         }
+  
+    
         void GetCourse()
         {
             var cou = (from objcou in dbconn.MstCourses
