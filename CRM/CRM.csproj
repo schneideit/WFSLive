@@ -496,6 +496,8 @@
     <Content Include="profile.html" />
     <Content Include="Schedule.aspx" />
     <Content Include="RoleAdd.aspx" />
+    <Content Include="Uploads\Students\NoImage.gif" />
+    <Content Include="Uploads\Students\NoImage.jpg" />
     <Content Include="UserAdd.aspx" />
     <Content Include="Student.aspx" />
     <Content Include="StudProfile.aspx" />
@@ -748,9 +750,7 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Uploads\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <COMReference Include="SpeechLib">
       <Guid>{C866CA3A-32F7-11D2-9602-00C04F8EE628}</Guid>

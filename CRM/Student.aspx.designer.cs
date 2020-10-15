@@ -15,6 +15,15 @@ namespace CRM
     {
 
         /// <summary>
+        /// updImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updImg;
+
+        /// <summary>
         /// txtFname control.
         /// </summary>
         /// <remarks>
@@ -87,13 +96,13 @@ namespace CRM
         protected global::System.Web.UI.WebControls.TextBox txtaddress2;
 
         /// <summary>
-        /// ImgStudent control.
+        /// imgStud control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgStudent;
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgStud;
 
         /// <summary>
         /// FileUpload1 control.

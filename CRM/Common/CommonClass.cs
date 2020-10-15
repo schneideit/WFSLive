@@ -52,7 +52,7 @@ namespace CRM.Common
         public bool ShowInMenu { get; set; }
         public short DisplayOrder { get; set; }
     }
-    public class Role 
+    public class Role
     {
         public int RoleID { get; set; }
         public string Description { get; set; }
@@ -63,5 +63,11 @@ namespace CRM.Common
         public string PageID { get; set; }
         public int ActionValue { get; set; }
 
+    }
+
+    public class PostedFile
+    {
+        public string FileName { get; set; }
+        public string Base64Data { get; set; }
     }
 }

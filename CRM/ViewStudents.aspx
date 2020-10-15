@@ -57,6 +57,7 @@
                                     <asp:LinkButton ID="btnAttnd" class="fa fa-calendar" runat="server" CommandArgument='<%#Eval("StudId")%>' OnClick="btnAttnd_Click"></asp:LinkButton>
                                 </td>
                                 <td>
+                                    <img id="imgStud" runat="server" style="max-height:70px; max-width:50px" src='<%# "Uploads\\Students\\"+(Convert.ToString(Eval("Imagepath"))==""?"NoImage.gif":Eval("Imagepath")) %>'  />
                                     <asp:LinkButton ID="btnEdit" Text='<%#Eval("Name") %>' runat="server" CommandArgument='<%#Eval("StudId")%>' OnClick="btnEdit_Click"></asp:LinkButton>
                                 </td>
 

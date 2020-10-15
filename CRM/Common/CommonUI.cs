@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -194,6 +197,42 @@ namespace CRM.Common
                 String str = _xmlDoc.InnerXml;
                 return str;
             }
+        }
+        public static void ImageOptimizeAndSave(Bitmap image, int maxWidth, int maxHeight, string filePath, int quality = 50)
+        {
+            int originalWidth = image.Width;
+            int originalHeight = image.Height;
+
+            // To preserve the aspect ratio
+            float ratioX = (float)maxWidth / (float)originalWidth;
+            float ratioY = (float)maxHeight / (float)originalHeight;
+            float ratio = Math.Min(ratioX, ratioY);
+
+            int newWidth = (int)(originalWidth * ratio);
+            int newHeight = (int)(originalHeight * ratio);
+
+            Bitmap newImage = new Bitmap(newWidth, newHeight, PixelFormat.Format24bppRgb);
+
+            using (Graphics graphics = Graphics.FromImage(newImage))
+            {
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.DrawImage(image, -3, -3, newWidth + 3, newHeight + 3);
+            }
+
+            ImageCodecInfo imageCodecInfo = GetEncoderInfo(ImageFormat.Jpeg);
+            System.Drawing.Imaging.Encoder encoder = System.Drawing.Imaging.Encoder.Quality;
+            EncoderParameters encoderParameters = new EncoderParameters(1);
+
+            image.Dispose();
+            EncoderParameter encoderParameter = new EncoderParameter(encoder, quality);
+            encoderParameters.Param[0] = encoderParameter;
+            newImage.Save(filePath, imageCodecInfo, encoderParameters);
+        }
+        private static ImageCodecInfo GetEncoderInfo(ImageFormat format)
+        {
+            return ImageCodecInfo.GetImageDecoders().SingleOrDefault(c => c.FormatID == format.Guid);
         }
     }
     public static class Constants

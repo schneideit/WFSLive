@@ -75,9 +75,8 @@
                                             <th>Name</th>
                                             <th>Course</th>
                                             <th>Location</th>
-                                            <th>Date</th>
-                                            <th>IN Time</th>
-                                            <th>OUT Time</th>
+                                            <th>In Time</th>
+                                            <th>Out Time</th>
                                         </tr>
                                     </thead>
                             </div>
@@ -107,40 +106,6 @@
         <asp:Button ID="BtnAttndSave" runat="server" class="border-0 btn btn-primary btn-gradient-primary btn-rounded" Text="Save" OnClick="BtnAttndSave_Click" />
         <asp:Button ID="BtnClose" runat="server" class="border-0 btn btn-primary btn-gradient-primary btn-rounded" Text="Close" />
     </div>
-    <%--<div class="panel-body custom_panel">
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="back_table_color">
-                    <tr class="info">
-                        <th>Date</th>
-                        <th>In Time</th>
-                        <th>Out Time</th>
-                        <th>Hours</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16-09-2020</td>
-                        <td>09:45 AM</td>
-                        <td>10:45 AM</td>
-                        <td>1:00</td>
-                        <td class="text-center">
-                            <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="#update"><i class="fa fa-pencil"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>15-09-2020</td>
-                        <td>09:45 AM</td>
-                        <td>10:15 AM</td>
-                        <td>1:15</td>
-                        <td class="text-center">
-                            <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="#update"><i class="fa fa-pencil"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>--%>
+ 
 </asp:Content>
 

@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CRM.Common;
 using System.IO;
-
+using System.Drawing;
 
 namespace CRM
 {
@@ -14,7 +14,8 @@ namespace CRM
     {
         LinqDBDataContext dbconn = new LinqDBDataContext();
         AppErrorLog objLog = new AppErrorLog();
-        public string mStudid, ImageFile,STUDID; string FilePath, FileName;
+        public string mStudid, ImageFile, STUDID; string FilePath = "Uploads\\Students";
+        int imgWidth = 500, imgHeight = 700, imgQuality = 60, iconWidth = 100, iconHeight = 150, iconQuality = 40;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,7 @@ namespace CRM
             }
             if (!Page.IsPostBack)
             {
+                Session.Remove("STDFILE");
                 if (!string.IsNullOrEmpty(Session["SesnStudId"] as string))
                 {
 
@@ -60,57 +62,73 @@ namespace CRM
                 }
                 //Chksib.Checked = EE.Sibling.HasValue;
                 //ddlsib.SelectedValue = EE.SibId.ToString();
-               // MstStudent objGetImg = dbconn.MstStudents.Single(M => M.StudId == Convert.ToInt32(mStudid));
-                string ImgPath = EE.Imagepath.Trim();
-                if (ImgPath != "" || ImgPath != null)
+                // MstStudent objGetImg = dbconn.MstStudents.Single(M => M.StudId == Convert.ToInt32(mStudid));
+
+                if (!string.IsNullOrEmpty(EE.Imagepath))
                 {
-                    string url = (ImgPath).Replace('\\', '/');
-                    ImgStudent.ImageUrl = url;
+                    imgStud.Src = Path.Combine(FilePath, EE.Imagepath);
+                    imgStud.Visible = true;
                 }
             }
         }
 
-   
+
 
         protected void BtnUpload_Click(object sender, EventArgs e)
         {
             try
             {
-                string FileExtention = System.IO.Path.GetExtension(FileUpload1.FileName);
-                int fileSize = FileUpload1.PostedFile.ContentLength;
-                if (FileExtention == ".png" || FileExtention == ".jpeg" || FileExtention == ".jpg")
+                string msg = ValidateImage(FileUpload1?.PostedFile);
+                if (string.IsNullOrEmpty(msg))
                 {
-                    if (fileSize <= (3145728))  // 3MB -> 3 * 1024 * 1024
-                    {
-
-                        FilePath = FileUpload1.PostedFile.FileName;
-                        FileName = Path.GetFileName(FilePath);
-                        string url = Server.MapPath(FilePath).Replace('\\', '/');
-                        string pathToCreate = url + Convert.ToInt32(mStudid) + "_" + FileName;
-                        FileUpload1.SaveAs(pathToCreate);
-                        ImageUp(Convert.ToInt32(mStudid));
-                        //Response.Redirect("MyProfile.aspx", true);
-                        //  ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Script", "RefreshParent();", true);
-
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "onload", "alert('File too large, please upload the file below 3MB');", true);
-                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Script", "NavTab1();", true);
-                        FileUpload1.Focus();
-                    }
-
-
+                    System.IO.Stream fs = FileUpload1.PostedFile.InputStream;
+                    System.IO.BinaryReader br = new System.IO.BinaryReader(fs);
+                    Byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                    string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                    imgStud.Src = $"data:image/{Path.GetExtension(FileUpload1.PostedFile.FileName).Replace(".", "")};base64, {base64String}";
+                    imgStud.Visible = true;
+                    Session["STDFILE"] = new PostedFile() { Base64Data = base64String, FileName = FileUpload1.PostedFile.FileName };
                 }
-            }
-      catch (Exception ex)
+                else
                 {
-                    //objLog.ErrorLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message.ToString(), "admin", AppErrorLog.ErrorLogMethods.TextFile, "CRM");
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", "<script>showalert('Failed to save record. Please contact Support Team','','error')</script>", false);
+                    Session.Remove("STDFILE");
+                    CommonUI.ShowMessage(msg, this);
                 }
-            }
+                //string FileExtention = System.IO.Path.GetExtension(FileUpload1.FileName);
+                //int fileSize = FileUpload1.PostedFile.ContentLength;
+                //if (FileExtention == ".png" || FileExtention == ".jpeg" || FileExtention == ".jpg")
+                //{
+                //    if (fileSize <= (3145728))  // 3MB -> 3 * 1024 * 1024
+                //    {
 
-                protected void BtnStudSave_Click(object sender, EventArgs e)
+                //        FilePath = FileUpload1.PostedFile.FileName;
+                //        FileName = Path.GetFileName(FilePath);
+                //        string url = Server.MapPath(FilePath).Replace('\\', '/');
+                //        string pathToCreate = url + Convert.ToInt32(mStudid) + "_" + FileName;
+                //        FileUpload1.SaveAs(pathToCreate);
+                //        ImageUp(Convert.ToInt32(mStudid));
+                //        //Response.Redirect("MyProfile.aspx", true);
+                //        //  ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Script", "RefreshParent();", true);
+
+                //    }
+                //    else
+                //    {
+                //        ScriptManager.RegisterStartupScript(this, this.GetType(), "onload", "alert('File too large, please upload the file below 3MB');", true);
+                //        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Script", "NavTab1();", true);
+                //        FileUpload1.Focus();
+                //    }
+
+
+                //}
+            }
+            catch (Exception ex)
+            {
+                //objLog.ErrorLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message.ToString(), "admin", AppErrorLog.ErrorLogMethods.TextFile, "CRM");
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Error", "<script>showalert('Failed to save record. Please contact Support Team','','error')</script>", false);
+            }
+        }
+
+        protected void BtnStudSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Session["SesnStudId"] as string))
             {
@@ -131,11 +149,15 @@ namespace CRM
                     objStdIns.Expdate = Convert.ToDateTime(txtedate.Text);
                     //objStdIns.Sibling = Chksib.Checked;
                     //objStdIns.SibId = Convert.ToInt32(ddlsib.SelectedValue);
-                   
+
                     dbconn.MstStudents.InsertOnSubmit(objStdIns);
                     dbconn.SubmitChanges();
-                    
-                   
+
+                    if (Session["STDFILE"] != null)
+                    {
+                        objStdIns.Imagepath = SaveImage(objStdIns.StudId);
+                        dbconn.SubmitChanges();
+                    }
 
                 }
                 catch (Exception ex)
@@ -164,6 +186,7 @@ namespace CRM
                     objStdup.Expdate = Convert.ToDateTime(txtedate.Text);
                     //objStdup.Sibling = Chksib.Checked;
                     //objStdup.SibId = Convert.ToInt32(ddlsib.SelectedValue);
+                    objStdup.Imagepath = SaveImage(objStdup.StudId);
                     dbconn.SubmitChanges();
 
                 }
@@ -190,36 +213,70 @@ namespace CRM
                 if (ImgPath != "" || ImgPath != null)
                 {
                     string url = (ImgPath).Replace('\\', '/');
-                    ImgStudent.ImageUrl = url;
+                    //ImgStudent.ImageUrl = url;
                 }
 
-
-                //var ObjImg = from objImgs in 
-                //dbconn.MstStudents(Convert.ToInt32(STUDID))
-                //select new
-                //             {
-                //                 objImgs.ImagePath
-                //             };
-
-                //foreach (var binds in objGetImg)
-                //{
-                //    ImageFile = binds.FileName;
-                //}
-                //if (ImageFile != "" && ImageFile != null)
-                //{
-                //    string url = ("~/Uploads").Replace('\\', '/');
-                //    ImgStudent.ImageUrl = (url + ImageFile);
-                //}
-                //else
-                //{
-                //    ImgStudent.ImageUrl = "Uploads/profile.jpg";
-                //}
             }
             catch (Exception ex)
             {
-               // objLog.ErrorLog("UserDetails", "ImageUp", ex.Message.ToString(), LMSENDE.Decrypt(Request.Cookies["LoginCookies"]["LOGINNAME"]).ToString(), AppErrorLog.ErrorLogMethods.TextFile, "OnlineLMS");
+                // objLog.ErrorLog("UserDetails", "ImageUp", ex.Message.ToString(), LMSENDE.Decrypt(Request.Cookies["LoginCookies"]["LOGINNAME"]).ToString(), AppErrorLog.ErrorLogMethods.TextFile, "OnlineLMS");
             }
 
+        }
+
+        private string SaveImage(int studId)
+        {
+            try
+            {
+                if (Session["STDFILE"] != null)
+                {
+                    PostedFile postedFile = (PostedFile)Session["STDFILE"];
+                    string fName = studId.ToString() + Path.GetExtension(postedFile.FileName);
+
+                    Bitmap postedImage = null;
+                    byte[] byteBuffer = Convert.FromBase64String(postedFile.Base64Data);
+                    MemoryStream memoryStream = new MemoryStream(byteBuffer);
+                    memoryStream.Position = 0;
+                    postedImage = (Bitmap)Bitmap.FromStream(memoryStream);
+
+
+                    //Save orginal image
+                    CommonUI.ImageOptimizeAndSave(postedImage, imgWidth, imgHeight,
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath,
+                            studId.ToString() + Path.GetExtension(postedFile.FileName)), imgQuality);
+                    //Save icon image
+                    Bitmap icon = (Bitmap)Bitmap.FromStream(memoryStream);
+                    CommonUI.ImageOptimizeAndSave(icon, iconWidth, iconHeight,
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath,
+                            "icon_" + studId.ToString() + Path.GetExtension(postedFile.FileName)), iconQuality);
+                    memoryStream.Close();
+                    memoryStream = null;
+                    byteBuffer = null;
+                    return fName;
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+                Logger.Error.LogError(ex);
+                return "";
+            }
+        }
+        private string ValidateImage(HttpPostedFile postedfile)
+        {
+            string msg = "";
+            if (postedfile?.ContentLength == 0)
+                msg = "Invalid upload";
+            else
+            {
+                string FileExtention = System.IO.Path.GetExtension(FileUpload1.FileName);
+                if (FileExtention != ".png" && FileExtention != ".jpeg" && FileExtention != ".jpg")
+                {
+                    msg = "Invalid file format, only png, jpg & gif is allowed.";
+                }
+
+            }
+            return msg;
         }
     }
 }
