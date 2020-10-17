@@ -51,9 +51,6 @@ namespace CRM
     partial void InsertMstLocation(MstLocation instance);
     partial void UpdateMstLocation(MstLocation instance);
     partial void DeleteMstLocation(MstLocation instance);
-    partial void InsertMstTrainer(MstTrainer instance);
-    partial void UpdateMstTrainer(MstTrainer instance);
-    partial void DeleteMstTrainer(MstTrainer instance);
     partial void InsertTbl_TrainerCourse(Tbl_TrainerCourse instance);
     partial void UpdateTbl_TrainerCourse(Tbl_TrainerCourse instance);
     partial void DeleteTbl_TrainerCourse(Tbl_TrainerCourse instance);
@@ -105,6 +102,9 @@ namespace CRM
     partial void InsertMstAttendance(MstAttendance instance);
     partial void UpdateMstAttendance(MstAttendance instance);
     partial void DeleteMstAttendance(MstAttendance instance);
+    partial void InsertMstTrainer(MstTrainer instance);
+    partial void UpdateMstTrainer(MstTrainer instance);
+    partial void DeleteMstTrainer(MstTrainer instance);
     #endregion
 		
 		public LinqDBDataContext() : 
@@ -190,14 +190,6 @@ namespace CRM
 			get
 			{
 				return this.GetTable<MstLocation>();
-			}
-		}
-		
-		public System.Data.Linq.Table<MstTrainer> MstTrainers
-		{
-			get
-			{
-				return this.GetTable<MstTrainer>();
 			}
 		}
 		
@@ -358,6 +350,14 @@ namespace CRM
 			get
 			{
 				return this.GetTable<MstAttendance>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MstTrainer> MstTrainers
+		{
+			get
+			{
+				return this.GetTable<MstTrainer>();
 			}
 		}
 		
@@ -1995,10 +1995,6 @@ namespace CRM
 		
 		private EntityRef<MstLocation> _MstLocation;
 		
-		private EntityRef<MstTrainer> _MstTrainer;
-		
-		private EntityRef<MstTrainer> _MstTrainer1;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2042,8 +2038,6 @@ namespace CRM
 			this._MstCourse = default(EntityRef<MstCourse>);
 			this._MstCourse1 = default(EntityRef<MstCourse>);
 			this._MstLocation = default(EntityRef<MstLocation>);
-			this._MstTrainer = default(EntityRef<MstTrainer>);
-			this._MstTrainer1 = default(EntityRef<MstTrainer>);
 			OnCreated();
 		}
 		
@@ -2122,10 +2116,6 @@ namespace CRM
 			{
 				if ((this._TrainerId != value))
 				{
-					if ((this._MstTrainer.HasLoadedOrAssignedValue || this._MstTrainer1.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnTrainerIdChanging(value);
 					this.SendPropertyChanging();
 					this._TrainerId = value;
@@ -2487,74 +2477,6 @@ namespace CRM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrnSchedule", Storage="_MstTrainer", ThisKey="TrainerId", OtherKey="TrainerId", IsForeignKey=true)]
-		public MstTrainer MstTrainer
-		{
-			get
-			{
-				return this._MstTrainer.Entity;
-			}
-			set
-			{
-				MstTrainer previousValue = this._MstTrainer.Entity;
-				if (((previousValue != value) 
-							|| (this._MstTrainer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MstTrainer.Entity = null;
-						previousValue.Tbl_TrnSchedules.Remove(this);
-					}
-					this._MstTrainer.Entity = value;
-					if ((value != null))
-					{
-						value.Tbl_TrnSchedules.Add(this);
-						this._TrainerId = value.TrainerId;
-					}
-					else
-					{
-						this._TrainerId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MstTrainer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrnSchedule1", Storage="_MstTrainer1", ThisKey="TrainerId", OtherKey="TrainerId", IsForeignKey=true)]
-		public MstTrainer MstTrainer1
-		{
-			get
-			{
-				return this._MstTrainer1.Entity;
-			}
-			set
-			{
-				MstTrainer previousValue = this._MstTrainer1.Entity;
-				if (((previousValue != value) 
-							|| (this._MstTrainer1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MstTrainer1.Entity = null;
-						previousValue.Tbl_TrnSchedules1.Remove(this);
-					}
-					this._MstTrainer1.Entity = value;
-					if ((value != null))
-					{
-						value.Tbl_TrnSchedules1.Add(this);
-						this._TrainerId = value.TrainerId;
-					}
-					else
-					{
-						this._TrainerId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MstTrainer1");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2858,444 +2780,6 @@ namespace CRM
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MstTrainer")]
-	public partial class MstTrainer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _TrainerId;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Email;
-		
-		private string _ContactNo;
-		
-		private string _Address;
-		
-		private System.Nullable<int> _UserId;
-		
-		private System.Nullable<bool> _IsActive;
-		
-		private string _CreatedBy;
-		
-		private System.Nullable<System.DateTime> _CreatedOn;
-		
-		private string _UpdatedBy;
-		
-		private System.Nullable<System.DateTime> _UpdatedOn;
-		
-		private EntitySet<Tbl_TrnSchedule> _Tbl_TrnSchedules;
-		
-		private EntitySet<Tbl_TrnSchedule> _Tbl_TrnSchedules1;
-		
-		private EntitySet<Tbl_TrainerCourse> _Tbl_TrainerCourses;
-		
-		private EntitySet<Tbl_TrainerCourse> _Tbl_TrainerCourses1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTrainerIdChanging(int value);
-    partial void OnTrainerIdChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnContactNoChanging(string value);
-    partial void OnContactNoChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnUserIdChanging(System.Nullable<int> value);
-    partial void OnUserIdChanged();
-    partial void OnIsActiveChanging(System.Nullable<bool> value);
-    partial void OnIsActiveChanged();
-    partial void OnCreatedByChanging(string value);
-    partial void OnCreatedByChanged();
-    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedOnChanged();
-    partial void OnUpdatedByChanging(string value);
-    partial void OnUpdatedByChanged();
-    partial void OnUpdatedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdatedOnChanged();
-    #endregion
-		
-		public MstTrainer()
-		{
-			this._Tbl_TrnSchedules = new EntitySet<Tbl_TrnSchedule>(new Action<Tbl_TrnSchedule>(this.attach_Tbl_TrnSchedules), new Action<Tbl_TrnSchedule>(this.detach_Tbl_TrnSchedules));
-			this._Tbl_TrnSchedules1 = new EntitySet<Tbl_TrnSchedule>(new Action<Tbl_TrnSchedule>(this.attach_Tbl_TrnSchedules1), new Action<Tbl_TrnSchedule>(this.detach_Tbl_TrnSchedules1));
-			this._Tbl_TrainerCourses = new EntitySet<Tbl_TrainerCourse>(new Action<Tbl_TrainerCourse>(this.attach_Tbl_TrainerCourses), new Action<Tbl_TrainerCourse>(this.detach_Tbl_TrainerCourses));
-			this._Tbl_TrainerCourses1 = new EntitySet<Tbl_TrainerCourse>(new Action<Tbl_TrainerCourse>(this.attach_Tbl_TrainerCourses1), new Action<Tbl_TrainerCourse>(this.detach_Tbl_TrainerCourses1));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainerId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TrainerId
-		{
-			get
-			{
-				return this._TrainerId;
-			}
-			set
-			{
-				if ((this._TrainerId != value))
-				{
-					this.OnTrainerIdChanging(value);
-					this.SendPropertyChanging();
-					this._TrainerId = value;
-					this.SendPropertyChanged("TrainerId");
-					this.OnTrainerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(100)")]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="VarChar(20)")]
-		public string ContactNo
-		{
-			get
-			{
-				return this._ContactNo;
-			}
-			set
-			{
-				if ((this._ContactNo != value))
-				{
-					this.OnContactNoChanging(value);
-					this.SendPropertyChanging();
-					this._ContactNo = value;
-					this.SendPropertyChanged("ContactNo");
-					this.OnContactNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(500)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
-		public System.Nullable<int> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit")]
-		public System.Nullable<bool> IsActive
-		{
-			get
-			{
-				return this._IsActive;
-			}
-			set
-			{
-				if ((this._IsActive != value))
-				{
-					this.OnIsActiveChanging(value);
-					this.SendPropertyChanging();
-					this._IsActive = value;
-					this.SendPropertyChanged("IsActive");
-					this.OnIsActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(50)")]
-		public string CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedOn
-		{
-			get
-			{
-				return this._CreatedOn;
-			}
-			set
-			{
-				if ((this._CreatedOn != value))
-				{
-					this.OnCreatedOnChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedOn = value;
-					this.SendPropertyChanged("CreatedOn");
-					this.OnCreatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="VarChar(50)")]
-		public string UpdatedBy
-		{
-			get
-			{
-				return this._UpdatedBy;
-			}
-			set
-			{
-				if ((this._UpdatedBy != value))
-				{
-					this.OnUpdatedByChanging(value);
-					this.SendPropertyChanging();
-					this._UpdatedBy = value;
-					this.SendPropertyChanged("UpdatedBy");
-					this.OnUpdatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdatedOn
-		{
-			get
-			{
-				return this._UpdatedOn;
-			}
-			set
-			{
-				if ((this._UpdatedOn != value))
-				{
-					this.OnUpdatedOnChanging(value);
-					this.SendPropertyChanging();
-					this._UpdatedOn = value;
-					this.SendPropertyChanged("UpdatedOn");
-					this.OnUpdatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrnSchedule", Storage="_Tbl_TrnSchedules", ThisKey="TrainerId", OtherKey="TrainerId")]
-		public EntitySet<Tbl_TrnSchedule> Tbl_TrnSchedules
-		{
-			get
-			{
-				return this._Tbl_TrnSchedules;
-			}
-			set
-			{
-				this._Tbl_TrnSchedules.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrnSchedule1", Storage="_Tbl_TrnSchedules1", ThisKey="TrainerId", OtherKey="TrainerId")]
-		public EntitySet<Tbl_TrnSchedule> Tbl_TrnSchedules1
-		{
-			get
-			{
-				return this._Tbl_TrnSchedules1;
-			}
-			set
-			{
-				this._Tbl_TrnSchedules1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrainerCourse", Storage="_Tbl_TrainerCourses", ThisKey="TrainerId", OtherKey="TrainerId")]
-		public EntitySet<Tbl_TrainerCourse> Tbl_TrainerCourses
-		{
-			get
-			{
-				return this._Tbl_TrainerCourses;
-			}
-			set
-			{
-				this._Tbl_TrainerCourses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrainerCourse1", Storage="_Tbl_TrainerCourses1", ThisKey="TrainerId", OtherKey="TrainerId")]
-		public EntitySet<Tbl_TrainerCourse> Tbl_TrainerCourses1
-		{
-			get
-			{
-				return this._Tbl_TrainerCourses1;
-			}
-			set
-			{
-				this._Tbl_TrainerCourses1.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Tbl_TrnSchedules(Tbl_TrnSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer = this;
-		}
-		
-		private void detach_Tbl_TrnSchedules(Tbl_TrnSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer = null;
-		}
-		
-		private void attach_Tbl_TrnSchedules1(Tbl_TrnSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer1 = this;
-		}
-		
-		private void detach_Tbl_TrnSchedules1(Tbl_TrnSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer1 = null;
-		}
-		
-		private void attach_Tbl_TrainerCourses(Tbl_TrainerCourse entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer = this;
-		}
-		
-		private void detach_Tbl_TrainerCourses(Tbl_TrainerCourse entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer = null;
-		}
-		
-		private void attach_Tbl_TrainerCourses1(Tbl_TrainerCourse entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer1 = this;
-		}
-		
-		private void detach_Tbl_TrainerCourses1(Tbl_TrainerCourse entity)
-		{
-			this.SendPropertyChanging();
-			entity.MstTrainer1 = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tbl_TrainerCourses")]
 	public partial class Tbl_TrainerCourse : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3313,10 +2797,6 @@ namespace CRM
 		private string _UpdatedBy;
 		
 		private System.Nullable<System.DateTime> _UpdatedOn;
-		
-		private EntityRef<MstTrainer> _MstTrainer;
-		
-		private EntityRef<MstTrainer> _MstTrainer1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3338,8 +2818,6 @@ namespace CRM
 		
 		public Tbl_TrainerCourse()
 		{
-			this._MstTrainer = default(EntityRef<MstTrainer>);
-			this._MstTrainer1 = default(EntityRef<MstTrainer>);
 			OnCreated();
 		}
 		
@@ -3374,10 +2852,6 @@ namespace CRM
 			{
 				if ((this._TrainerId != value))
 				{
-					if ((this._MstTrainer.HasLoadedOrAssignedValue || this._MstTrainer1.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnTrainerIdChanging(value);
 					this.SendPropertyChanging();
 					this._TrainerId = value;
@@ -3463,74 +2937,6 @@ namespace CRM
 					this._UpdatedOn = value;
 					this.SendPropertyChanged("UpdatedOn");
 					this.OnUpdatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrainerCourse", Storage="_MstTrainer", ThisKey="TrainerId", OtherKey="TrainerId", IsForeignKey=true)]
-		public MstTrainer MstTrainer
-		{
-			get
-			{
-				return this._MstTrainer.Entity;
-			}
-			set
-			{
-				MstTrainer previousValue = this._MstTrainer.Entity;
-				if (((previousValue != value) 
-							|| (this._MstTrainer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MstTrainer.Entity = null;
-						previousValue.Tbl_TrainerCourses.Remove(this);
-					}
-					this._MstTrainer.Entity = value;
-					if ((value != null))
-					{
-						value.Tbl_TrainerCourses.Add(this);
-						this._TrainerId = value.TrainerId;
-					}
-					else
-					{
-						this._TrainerId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MstTrainer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MstTrainer_Tbl_TrainerCourse1", Storage="_MstTrainer1", ThisKey="TrainerId", OtherKey="TrainerId", IsForeignKey=true)]
-		public MstTrainer MstTrainer1
-		{
-			get
-			{
-				return this._MstTrainer1.Entity;
-			}
-			set
-			{
-				MstTrainer previousValue = this._MstTrainer1.Entity;
-				if (((previousValue != value) 
-							|| (this._MstTrainer1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MstTrainer1.Entity = null;
-						previousValue.Tbl_TrainerCourses1.Remove(this);
-					}
-					this._MstTrainer1.Entity = value;
-					if ((value != null))
-					{
-						value.Tbl_TrainerCourses1.Add(this);
-						this._TrainerId = value.TrainerId;
-					}
-					else
-					{
-						this._TrainerId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MstTrainer1");
 				}
 			}
 		}
@@ -9204,6 +8610,356 @@ namespace CRM
 					this._UpdatedOn = value;
 					this.SendPropertyChanged("UpdatedOn");
 					this.OnUpdatedOnChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MstTrainer")]
+	public partial class MstTrainer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TrainerId;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Email;
+		
+		private string _ContactNo;
+		
+		private string _Address;
+		
+		private System.Nullable<int> _UserId;
+		
+		private System.Nullable<bool> _IsActive;
+		
+		private string _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedOn;
+		
+		private string _UpdatedBy;
+		
+		private System.Nullable<System.DateTime> _UpdatedOn;
+		
+		private System.Nullable<int> _CourseId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTrainerIdChanging(int value);
+    partial void OnTrainerIdChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnContactNoChanging(string value);
+    partial void OnContactNoChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnUserIdChanging(System.Nullable<int> value);
+    partial void OnUserIdChanged();
+    partial void OnIsActiveChanging(System.Nullable<bool> value);
+    partial void OnIsActiveChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedOnChanged();
+    partial void OnUpdatedByChanging(string value);
+    partial void OnUpdatedByChanged();
+    partial void OnUpdatedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdatedOnChanged();
+    partial void OnCourseIdChanging(System.Nullable<int> value);
+    partial void OnCourseIdChanged();
+    #endregion
+		
+		public MstTrainer()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainerId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TrainerId
+		{
+			get
+			{
+				return this._TrainerId;
+			}
+			set
+			{
+				if ((this._TrainerId != value))
+				{
+					this.OnTrainerIdChanging(value);
+					this.SendPropertyChanging();
+					this._TrainerId = value;
+					this.SendPropertyChanged("TrainerId");
+					this.OnTrainerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(100)")]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNo", DbType="VarChar(20)")]
+		public string ContactNo
+		{
+			get
+			{
+				return this._ContactNo;
+			}
+			set
+			{
+				if ((this._ContactNo != value))
+				{
+					this.OnContactNoChanging(value);
+					this.SendPropertyChanging();
+					this._ContactNo = value;
+					this.SendPropertyChanged("ContactNo");
+					this.OnContactNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(500)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+		public System.Nullable<int> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit")]
+		public System.Nullable<bool> IsActive
+		{
+			get
+			{
+				return this._IsActive;
+			}
+			set
+			{
+				if ((this._IsActive != value))
+				{
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(50)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this._CreatedOn;
+			}
+			set
+			{
+				if ((this._CreatedOn != value))
+				{
+					this.OnCreatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedOn = value;
+					this.SendPropertyChanged("CreatedOn");
+					this.OnCreatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="VarChar(50)")]
+		public string UpdatedBy
+		{
+			get
+			{
+				return this._UpdatedBy;
+			}
+			set
+			{
+				if ((this._UpdatedBy != value))
+				{
+					this.OnUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedBy = value;
+					this.SendPropertyChanged("UpdatedBy");
+					this.OnUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdatedOn
+		{
+			get
+			{
+				return this._UpdatedOn;
+			}
+			set
+			{
+				if ((this._UpdatedOn != value))
+				{
+					this.OnUpdatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedOn = value;
+					this.SendPropertyChanged("UpdatedOn");
+					this.OnUpdatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CourseId", DbType="Int")]
+		public System.Nullable<int> CourseId
+		{
+			get
+			{
+				return this._CourseId;
+			}
+			set
+			{
+				if ((this._CourseId != value))
+				{
+					this.OnCourseIdChanging(value);
+					this.SendPropertyChanging();
+					this._CourseId = value;
+					this.SendPropertyChanged("CourseId");
+					this.OnCourseIdChanged();
 				}
 			}
 		}

@@ -38,14 +38,14 @@
         <elementListCompartment Id="0369ddc8-cc3c-40b2-818e-60a52862fc0b" absoluteBounds="3.5150000000000006, 1.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 0.975); (3.5 : 0.975)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 0.975); (3.5 : 0.975)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstCourse/MstCourse_Tbl_TrnSchedule" />
       <nodes>
         <classShapeMoniker Id="6983a267-ee1f-4724-b5f7-6c550e4142c5" />
         <classShapeMoniker Id="89e11405-4d92-400f-96ea-f04b65c1c302" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 0.8); (3.5 : 0.8)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 0.8); (3.5 : 0.8)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstCourse/MstCourse_Tbl_TrnSchedule1" />
       <nodes>
         <classShapeMoniker Id="6983a267-ee1f-4724-b5f7-6c550e4142c5" />
@@ -58,30 +58,10 @@
         <elementListCompartment Id="a965de97-5890-476c-bf68-fe018d45b561" absoluteBounds="0.76500000000000012, 2.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.25); (3.28125 : 1.71875); (3.28125 : 1.29532472132544); (3.51107592307692 : 1.2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 2.25); (3.08169943490112 : 1.91830056509888 : JumpStart); (3.19955056509888 : 1.80044943490112 : JumpEnd); (3.28125 : 1.71875); (3.28125 : 1.29073076923077); (3.5 : 1.2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqDBDataContext/MstLocation/MstLocation_Tbl_TrnSchedule" />
       <nodes>
         <classShapeMoniker Id="86237a9b-cb75-468f-9a10-0643605078a7" />
-        <classShapeMoniker Id="89e11405-4d92-400f-96ea-f04b65c1c302" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="dc9d0cf9-4856-482c-aaf6-52c8ea1bf565" isExpanded="false" absoluteBounds="3.25, 4.875, 2, 0.45">
-      <DataClassMoniker Name="/LinqDBDataContext/MstTrainer" />
-      <nestedChildShapes>
-        <elementListCompartment Id="eaf9edd6-da4e-483c-ba54-71bc174e9651" absoluteBounds="3.2650000000000006, 5.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(4.25 : 4.875); (4.25 : 4.7625); (3.1875 : 4.7625); (3.1875 : 1.0875); (3.5 : 1.0875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/LinqDBDataContext/MstTrainer/MstTrainer_Tbl_TrnSchedule" />
-      <nodes>
-        <classShapeMoniker Id="dc9d0cf9-4856-482c-aaf6-52c8ea1bf565" />
-        <classShapeMoniker Id="89e11405-4d92-400f-96ea-f04b65c1c302" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(4.781252 : 4.875); (4.781252 : 4.79375); (3.0625 : 4.79375); (3.0625 : 0.9437475); (3.5 : 0.9437475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/LinqDBDataContext/MstTrainer/MstTrainer_Tbl_TrnSchedule1" />
-      <nodes>
-        <classShapeMoniker Id="dc9d0cf9-4856-482c-aaf6-52c8ea1bf565" />
         <classShapeMoniker Id="89e11405-4d92-400f-96ea-f04b65c1c302" />
       </nodes>
     </associationConnector>
@@ -91,41 +71,27 @@
         <elementListCompartment Id="10368540-2c8a-4888-9078-9d17ed771738" absoluteBounds="3.2649999999999997, 6.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.71875 : 5.325); (4.71875 : 5.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/LinqDBDataContext/MstTrainer/MstTrainer_Tbl_TrainerCourse" />
-      <nodes>
-        <classShapeMoniker Id="dc9d0cf9-4856-482c-aaf6-52c8ea1bf565" />
-        <classShapeMoniker Id="b96f5550-58d6-4883-9be6-2307900b3941" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.921875 : 5.325); (3.921875 : 5.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/LinqDBDataContext/MstTrainer/MstTrainer_Tbl_TrainerCourse1" />
-      <nodes>
-        <classShapeMoniker Id="dc9d0cf9-4856-482c-aaf6-52c8ea1bf565" />
-        <classShapeMoniker Id="b96f5550-58d6-4883-9be6-2307900b3941" />
-      </nodes>
-    </associationConnector>
     <classShape Id="089fd25b-0c95-4a84-b785-db56b778b28e" isExpanded="false" absoluteBounds="3.25, 4.25, 2, 0.45">
       <DataClassMoniker Name="/LinqDBDataContext/MstFeeType" />
       <nestedChildShapes>
         <elementListCompartment Id="dd9a959e-d706-4661-8e4e-dba387f80d0a" absoluteBounds="3.2649999999999997, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.451171875 : 4.25); (4.451171875 : 1.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.3193346875 : 4.25); (4.3193346875 : 1.95)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstFeeType/MstFeeType_Tbl_FeeDetail" />
       <nodes>
         <classShapeMoniker Id="089fd25b-0c95-4a84-b785-db56b778b28e" />
         <classShapeMoniker Id="0be39825-25f4-419c-a4a7-2138a2b6224a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.96484375 : 4.25); (3.96484375 : 1.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.62841734375 : 4.25); (4.62841734375 : 1.95)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstFeeType/MstFeeType_Tbl_FeeDetail1" />
       <nodes>
         <classShapeMoniker Id="089fd25b-0c95-4a84-b785-db56b778b28e" />
         <classShapeMoniker Id="0be39825-25f4-419c-a4a7-2138a2b6224a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.2080078125 : 4.25); (4.2080078125 : 1.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.01025203125 : 4.25); (4.01025203125 : 1.95)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstFeeType/MstFeeType_Tbl_FeeDetail2" />
       <nodes>
         <classShapeMoniker Id="089fd25b-0c95-4a84-b785-db56b778b28e" />
@@ -138,14 +104,14 @@
         <elementListCompartment Id="bf20d390-5419-48a1-a4b5-d1510eb019d0" absoluteBounds="0.76500000000000012, 3.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 3.2875); (3.701169375 : 3.2875); (3.701169375 : 1.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 3.2875); (3.701169375 : 3.2875); (3.701169375 : 1.95)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstCourseFee/MstCourseFee_Tbl_FeeDetail" />
       <nodes>
         <classShapeMoniker Id="da00effc-6bdd-4590-892c-ae774ad1d5f6" />
         <classShapeMoniker Id="0be39825-25f4-419c-a4a7-2138a2b6224a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.00761438461538); (3.4375 : 2.32011438461539); (3.4375 : 2.0125); (3.5 : 1.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 3.00761438461538); (3.375 : 2.38261438461539); (3.375 : 2.075); (3.5 : 1.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqDBDataContext/MstCourseFee/MstCourseFee_Tbl_FeeDetail1" />
       <nodes>
         <classShapeMoniker Id="da00effc-6bdd-4590-892c-ae774ad1d5f6" />
@@ -159,7 +125,7 @@
         <classShapeMoniker Id="da00effc-6bdd-4590-892c-ae774ad1d5f6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.5 : 1.2); (3.375 : 1.25184615384615); (3.375 : 2.36773076923077); (2.74273076923077 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.51107592307692 : 1.2); (3.140625 : 1.35365164440237); (3.140625 : 2.60210576923077); (2.74273076923077 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqDBDataContext/Tbl_TrnSchedule/Tbl_TrnSchedule_MstCourseFee" />
       <nodes>
         <classShapeMoniker Id="89e11405-4d92-400f-96ea-f04b65c1c302" />
@@ -172,7 +138,7 @@
         <elementListCompartment Id="4e8e8694-1b56-47fd-8250-6ebf4a3eda77" absoluteBounds="0.76499999999999968, 1.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.7812525 : 1.2); (1.7812525 : 1.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.7812525 : 1.2); (1.7812525 : 1.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqDBDataContext/MstCourse/MstCourse_Tbl_Enquiry" />
       <nodes>
         <classShapeMoniker Id="6983a267-ee1f-4724-b5f7-6c550e4142c5" />
@@ -301,6 +267,12 @@
       <DataClassMoniker Name="/LinqDBDataContext/MstAttendance" />
       <nestedChildShapes>
         <elementListCompartment Id="83749ca2-8487-44c9-987e-338b4186f2d5" absoluteBounds="5.6400000000000006, 1.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="691604cd-451e-427c-b212-7b51ae1e10e6" isExpanded="false" absoluteBounds="3.25, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/LinqDBDataContext/MstTrainer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44305559-06b3-4bb5-896b-dd15fae7a0bd" absoluteBounds="3.265, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

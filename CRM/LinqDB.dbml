@@ -88,8 +88,6 @@
       <Association Name="MstCourse_Tbl_TrnSchedule" Member="MstCourse" ThisKey="CourseId" OtherKey="CourseId" Type="MstCourse" IsForeignKey="true" />
       <Association Name="MstCourse_Tbl_TrnSchedule1" Member="MstCourse1" ThisKey="CourseId" OtherKey="CourseId" Type="MstCourse" IsForeignKey="true" />
       <Association Name="MstLocation_Tbl_TrnSchedule" Member="MstLocation" ThisKey="LocationId" OtherKey="LocId" Type="MstLocation" IsForeignKey="true" />
-      <Association Name="MstTrainer_Tbl_TrnSchedule" Member="MstTrainer" ThisKey="TrainerId" OtherKey="TrainerId" Type="MstTrainer" IsForeignKey="true" />
-      <Association Name="MstTrainer_Tbl_TrnSchedule1" Member="MstTrainer1" ThisKey="TrainerId" OtherKey="TrainerId" Type="MstTrainer" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MstLocation" Member="MstLocations">
@@ -105,26 +103,6 @@
       <Association Name="MstLocation_Tbl_TrnSchedule" Member="Tbl_TrnSchedules" ThisKey="LocId" OtherKey="LocationId" Type="Tbl_TrnSchedule" />
     </Type>
   </Table>
-  <Table Name="dbo.MstTrainer" Member="MstTrainers">
-    <Type Name="MstTrainer">
-      <Column Name="TrainerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ContactNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="MstTrainer_Tbl_TrnSchedule" Member="Tbl_TrnSchedules" ThisKey="TrainerId" OtherKey="TrainerId" Type="Tbl_TrnSchedule" />
-      <Association Name="MstTrainer_Tbl_TrnSchedule1" Member="Tbl_TrnSchedules1" ThisKey="TrainerId" OtherKey="TrainerId" Type="Tbl_TrnSchedule" />
-      <Association Name="MstTrainer_Tbl_TrainerCourse" Member="Tbl_TrainerCourses" ThisKey="TrainerId" OtherKey="TrainerId" Type="Tbl_TrainerCourse" />
-      <Association Name="MstTrainer_Tbl_TrainerCourse1" Member="Tbl_TrainerCourses1" ThisKey="TrainerId" OtherKey="TrainerId" Type="Tbl_TrainerCourse" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tbl_TrainerCourses" Member="Tbl_TrainerCourses">
     <Type Name="Tbl_TrainerCourse">
       <Column Name="CEvntId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -133,8 +111,6 @@
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="UpdatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="MstTrainer_Tbl_TrainerCourse" Member="MstTrainer" ThisKey="TrainerId" OtherKey="TrainerId" Type="MstTrainer" IsForeignKey="true" />
-      <Association Name="MstTrainer_Tbl_TrainerCourse1" Member="MstTrainer1" ThisKey="TrainerId" OtherKey="TrainerId" Type="MstTrainer" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.MstFeeType" Member="MstFeeTypes">
@@ -424,6 +400,23 @@
       <Column Name="OutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UpdatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MstTrainer" Member="MstTrainers">
+    <Type Name="MstTrainer">
+      <Column Name="TrainerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ContactNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UpdatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CourseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.GetRecordUpdateDetails" Method="GetRecordUpdateDetails">

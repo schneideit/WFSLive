@@ -496,6 +496,7 @@
     <Content Include="profile.html" />
     <Content Include="Schedule.aspx" />
     <Content Include="RoleAdd.aspx" />
+    <Content Include="Trainer.aspx" />
     <Content Include="Uploads\Students\NoImage.gif" />
     <Content Include="Uploads\Students\NoImage.jpg" />
     <Content Include="UserAdd.aspx" />
@@ -642,6 +643,13 @@
     </Compile>
     <Compile Include="RoleAdd.aspx.designer.cs">
       <DependentUpon>RoleAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trainer.aspx.cs">
+      <DependentUpon>Trainer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Trainer.aspx.designer.cs">
+      <DependentUpon>Trainer.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserAdd.aspx.cs">
       <DependentUpon>UserAdd.aspx</DependentUpon>
